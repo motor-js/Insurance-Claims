@@ -4,13 +4,15 @@ import {
   Grid,
   Box,
   Bar,
+  Column,
   Juno,
-  google,
-  powerbi,
+  Pie,
+  // google,
+  // powerbi,
   base,
-  // BarPlot,
+  KPI,
   Filter,
-  SmartHeading,
+  // SmartHeading,
   Sidebar,
   useScreenSize,
   useSidebar,
@@ -75,8 +77,21 @@ function App() {
       );
     } else {
       return (
-        <Box gridArea="sidebar" backgroundColor="brand">
-          <Filter label="Year" dimension={["Year"]} />
+        <Box
+          gridArea="sidebar"
+          backgroundColor="brand"
+          direction="column"
+          align="center"
+        >
+          <div style={{ color: "white" }}>Filters</div>
+          <Filter label="Claim Status" dimension={["Claim Status"]} />
+          {/* <Filter
+            label="Claim Occurence Year"
+            dimension={["Claim Occurence Date.autocalendar.Year"]}
+          /> */}
+          <Filter label="Claim Type" dimension={["Claim Type"]} />
+          <Filter label="Claim Sub-Type" dimension={["Claim Sub-Type"]} />
+          <Filter label="Broker" dimension={["BrokerName"]} />
         </Box>
       );
     }
@@ -113,55 +128,127 @@ function App() {
           align="center"
           padding="20px"
           size="large"
+          backgroundColor="brandLight"
         >
           <Grid
-            cols={["auto"]}
+            backgroundColor="brandLight"
+            // cols={["auto"]}
             // cols={["50%", "50%"]}
             areas={[
               ["topleft", "topright"],
               ["bottomleft", "bottomright"],
             ]}
           >
+            <Box
+              // gridArea="main"
+              border="bottom"
+              direction="row"
+              align="center"
+              padding="20px"
+              size="large"
+              backgroundColor="brandLight"
+            >
+              <KPI
+                cols={[
+                  "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1} ,[Claim Notification Date.autoCalendar.YearsAgo]={0} > } [ClaimCounter] )",
+                ]}
+                label="Claims Opened (YTD)"
+                size="small"
+              />
+              <KPI
+                cols={[
+                  "=Sum( { $< [Claim Settled Date.autoCalendar.InYTD]={1} ,[Claim Settled Date.autoCalendar.YearsAgo]={0} > } [ClaimCounter] )",
+                ]}
+                label="Claims Settled (YTD)"
+                size="small"
+              />
+              <KPI
+                cols={[
+                  "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1}, [Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])/1000000",
+                ]}
+                label="Claim Payments (YTD) {display as £}"
+                size="small"
+              />
+              <KPI
+                cols={[
+                  "=Avg( { $< [Claim Notification Date.autoCalendar.InYTD]={1} ,[Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])",
+                ]}
+                label="Ave Claim Costs (YTD) {display as £}"
+                size="small"
+              />
+            </Box>
+            {/* <Box
+              // gridArea="main"
+              border="bottom"
+              direction="row"
+              align="center"
+              padding="20px"
+              size="large"
+              backgroundColor="brandLight"
+            ></Box> */}
             <Bar
               cols={[
                 // { qField: "Year", qLabel: "Year" },
-                { qField: "[OICA region]", qLabel: "OICA region" },
                 {
-                  qField: "=Sum([Car sales])*if(Year=2011,1,1)",
-                  qLabel: "Car sales",
+                  qField: "[Claim Notification Date.autoCalendar.Year]",
+                  qLabel: "Claim Year",
+                },
+                {
+                  qField: "[Claim Type]",
+                  qLabel: "Claim Type",
+                },
+                {
+                  qField:
+                    "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1} > } [ClaimCounter] )",
+                  qLabel: "Claims Opened (All Yrs YTD)",
+                },
+              ]}
+              stacked={true}
+              suppressZero={true}
+              // showLegend={false}
+              textOnAxis="xAxis"
+            />
+            <Column
+              // notes :
+              // can we use master item Claim Type Drill-down by Claim Occurrence Year // qLibraryId
+              // can we use function in dimension - Year([Claim Occurrence Date])
+              cols={[
+                {
+                  // qField: "=Year([Claim Occurrence Date])",
+                  qField: "[Claim Occurrence Date]",
+                  qLabel: "Claim Type Drill-down by Claim Occurrence Year",
+                },
+                {
+                  qField: "=Sum([Total Claim Cost])",
+                  qLabel: "Total Claim Cost",
                 },
               ]}
               suppressZero={true}
+              title="Total Claims Cost by Claims Type (Drill Down)"
             />
             <Bar
               cols={[
-                { qField: "Year", qLabel: "Year" },
-                // { qField: "[OICA region]", qLabel: "OICA region" },
+                { qField: "[Vehicle Type]", qLabel: "Vehicle Type" },
+                // { qField: "[Claim Type]", qLabel: "Claim Type" },
                 {
-                  qField: "=Sum([Car sales])",
-                  qLabel: "Car sales",
+                  qField: "=Sum({[State 1]}[Total Claim Cost])",
+                  qLabel: "Total Claim Costs",
                 },
               ]}
               suppressZero={true}
-            />{" "}
-            <Bar
-              cols={[
-                // { qField: "Year", qLabel: "Year" },
-                { qField: "[OICA region]", qLabel: "OICA region" },
-                {
-                  qField: "=Sum([Car sales])*if(Year=2011,1,1)",
-                  qLabel: "Car sales",
-                },
-              ]}
-              suppressZero={true}
+              showLegend={false}
+              suppressScroll={true}
+              title={"Total claim costs..."}
+              // subTitle={
+              //   "Choose the selector on the left to see the costs for different dimensions"
+              // }
             />
-            <Bar
+            <Pie
               cols={[
-                { qField: "Year", qLabel: "Year" },
-                // { qField: "[OICA region]", qLabel: "OICA region" },
+                { qField: "[Claim Type]", qLabel: "Claim Type" },
                 {
-                  qField: "=Sum([Car sales])",
-                  qLabel: "Car sales",
+                  qField: "=Sum({[State 1]}[Total Claim Cost])",
+                  qLabel: "Total Claim Costs",
                 },
               ]}
               suppressZero={true}

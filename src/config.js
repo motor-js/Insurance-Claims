@@ -3,5 +3,5 @@ export const config = {
   secure: false,
   port: 19077,
   prefix: "",
-  appId: "0a6aaa49-cb0d-4b0c-8bd3-07c38878d318",
+  appId: "1ad25aed-95fe-495b-a7fa-eea1987a3712",
 };
