@@ -13,6 +13,8 @@ import {
   Sidebar,
   useScreenSize,
   useSidebar,
+  CurrentSelections,
+  // Button,
 } from "juno-ui/dist";
 import { Menu } from "@styled-icons/feather";
 // import { config } from "./config.js";
@@ -80,6 +82,7 @@ function App() {
           direction="column"
           align="center"
           padding="10px"
+          focusable={false}
         >
           <div style={{ color: "white" }}>Filters</div>
           <Filter label="Claim Status" dimension={["Claim Status"]} />
@@ -90,6 +93,8 @@ function App() {
           <Filter label="Claim Type" dimension={["Claim Type"]} />
           <Filter label="Claim Sub-Type" dimension={["Claim Sub-Type"]} />
           <Filter label="Broker" dimension={["BrokerName"]} />
+          <CurrentSelections />
+          {/* <Button /> */}
         </Box>
       );
     }
@@ -104,6 +109,7 @@ function App() {
         align="center"
         padding="20px"
         size="large"
+        focusable={false}
       >
         {smallScreen && (
           <Menu
@@ -125,6 +131,7 @@ function App() {
         padding="20px"
         size="large"
         backgroundColor="brandLight"
+        focusable={false}
       >
         <Grid
           backgroundColor="brandLight"
@@ -143,6 +150,7 @@ function App() {
             padding="20px"
             size="large"
             backgroundColor="brandLight"
+            focusable={false}
           >
             <KPI
               cols={[
@@ -190,8 +198,8 @@ function App() {
             />
           </Box>
           <Bar
+            // backgroundColor="beige"
             cols={[
-              // { qField: "Year", qLabel: "Year" },
               {
                 qField: "[Claim Notification Date.autoCalendar.Year]",
                 qLabel: "Claim Year",
@@ -209,6 +217,7 @@ function App() {
             stacked={true}
             suppressZero={true}
             // showLegend={false}
+            // suppressScroll={true}
             textOnAxis="xAxis"
           />
           <Column
@@ -266,6 +275,7 @@ function App() {
         justifyContent="center"
         direction="row"
         size="small"
+        focusable={false}
       >
         made with ❤️ by motor
       </Box>
