@@ -5,10 +5,7 @@ import {
   Box,
   Bar,
   Column,
-  Juno,
   Pie,
-  // google,
-  // powerbi,
   base,
   KPI,
   Filter,
@@ -18,7 +15,7 @@ import {
   useSidebar,
 } from "juno-ui/dist";
 import { Menu } from "@styled-icons/feather";
-import { config } from "./config.js";
+// import { config } from "./config.js";
 
 // base.selectionModal.buttonType = "button";
 base.global.fontFamily = "'Source Sans Pro', sans-serif";
@@ -82,6 +79,7 @@ function App() {
           backgroundColor="brand"
           direction="column"
           align="center"
+          padding="10px"
         >
           <div style={{ color: "white" }}>Filters</div>
           <Filter label="Claim Status" dimension={["Claim Status"]} />
@@ -99,190 +97,178 @@ function App() {
 
   return (
     <Grid rows={["60px", "auto", "40px"]} columns={cols} areas={areas}>
-      {/* <Juno config={config} theme={powerbi}> */}
-      <Juno config={config}>
-        <Box
-          gridArea="header"
-          border="bottom"
-          direction="row"
-          align="center"
-          padding="20px"
-          size="large"
-        >
-          {smallScreen && (
-            <Menu
-              onClick={toggle}
-              size={25}
-              style={{ padding: "0px 30px 0px 5px" }}
-            />
-          )}
-          <div>
-            Motor Starter Dashboard
-            {/* <SmartHeading level={5}>Last reload : </SmartHeading> */}
-          </div>
-        </Box>
-        <Box
-          gridArea="main"
-          border="bottom"
-          direction="row"
-          align="center"
-          padding="20px"
-          size="large"
+      <Box
+        gridArea="header"
+        border="bottom"
+        direction="row"
+        align="center"
+        padding="20px"
+        size="large"
+      >
+        {smallScreen && (
+          <Menu
+            onClick={toggle}
+            size={25}
+            style={{ padding: "0px 30px 0px 5px" }}
+          />
+        )}
+        <div>
+          Motor Starter Dashboard
+          {/* <SmartHeading level={5}>Last reload : </SmartHeading> */}
+        </div>
+      </Box>
+      <Box
+        gridArea="main"
+        border="bottom"
+        direction="row"
+        align="center"
+        padding="20px"
+        size="large"
+        backgroundColor="brandLight"
+      >
+        <Grid
           backgroundColor="brandLight"
+          // cols={["auto"]}
+          // cols={["50%", "50%"]}
+          areas={[
+            ["topleft", "topright"],
+            ["bottomleft", "bottomright"],
+          ]}
         >
-          <Grid
+          <Box
+            // gridArea="main"
+            border="bottom"
+            direction="row"
+            align="center"
+            padding="20px"
+            size="large"
             backgroundColor="brandLight"
-            // cols={["auto"]}
-            // cols={["50%", "50%"]}
-            areas={[
-              ["topleft", "topright"],
-              ["bottomleft", "bottomright"],
-            ]}
           >
-            <Box
-              // gridArea="main"
-              border="bottom"
-              direction="row"
-              align="center"
-              padding="20px"
-              size="large"
-              backgroundColor="brandLight"
-            >
-              <KPI
-                cols={[
-                  "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1} ,[Claim Notification Date.autoCalendar.YearsAgo]={0} > } [ClaimCounter] )",
-                ]}
-                label="Claims Opened (YTD)"
-                size="small"
-              />
-              <KPI
-                cols={[
-                  "=Sum( { $< [Claim Settled Date.autoCalendar.InYTD]={1} ,[Claim Settled Date.autoCalendar.YearsAgo]={0} > } [ClaimCounter] )",
-                ]}
-                label="Claims Settled (YTD)"
-                size="small"
-              />
-              <KPI
-                cols={[
-                  "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1}, [Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])/1000000",
-                ]}
-                // cols={[
-                //   {
-                //     qField:
-                //       "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1}, [Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])/1000000",
-                //     qLabel: "Sales $",
-                //     qNumFormat: {
-                //       qType: "R",
-                //       qnDec: 14,
-                //       qUseThou: 1,
-                //       //  "qFmt": "##############",
-                //       qFmt: "#,##0.00%",
-                //       qDec: ".",
-                //       qThou: ",",
-                //     },
-                //   },
-                // ]}
-                label="Claim Payments (YTD) {display as £}"
-                size="small"
-              />
-              <KPI
-                cols={[
-                  "=Avg( { $< [Claim Notification Date.autoCalendar.InYTD]={1} ,[Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])",
-                ]}
-                label="Ave Claim Costs (YTD) {display as £}"
-                size="small"
-              />
-            </Box>
-            {/* <Box
-              // gridArea="main"
-              border="bottom"
-              direction="row"
-              align="center"
-              padding="20px"
-              size="large"
-              backgroundColor="brandLight"
-            ></Box> */}
-            <Bar
+            <KPI
               cols={[
-                // { qField: "Year", qLabel: "Year" },
-                {
-                  qField: "[Claim Notification Date.autoCalendar.Year]",
-                  qLabel: "Claim Year",
-                },
-                {
-                  qField: "[Claim Type]",
-                  qLabel: "Claim Type",
-                },
-                {
-                  qField:
-                    "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1} > } [ClaimCounter] )",
-                  qLabel: "Claims Opened (All Yrs YTD)",
-                },
+                "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1} ,[Claim Notification Date.autoCalendar.YearsAgo]={0} > } [ClaimCounter] )",
               ]}
-              stacked={true}
-              suppressZero={true}
-              // showLegend={false}
-              textOnAxis="xAxis"
+              label="Claims Opened (YTD)"
+              size="small"
             />
-            <Column
-              // notes :
-              // can we use master item Claim Type Drill-down by Claim Occurrence Year // qLibraryId
-              // can we use function in dimension - Year([Claim Occurrence Date])
+            <KPI
               cols={[
-                {
-                  // qField: "=Year([Claim Occurrence Date])",
-                  qField: "[Claim Occurrence Date]",
-                  qLabel: "Claim Type Drill-down by Claim Occurrence Year",
-                },
-                {
-                  qField: "=Sum([Total Claim Cost])",
-                  qLabel: "Total Claim Cost",
-                },
+                "=Sum( { $< [Claim Settled Date.autoCalendar.InYTD]={1} ,[Claim Settled Date.autoCalendar.YearsAgo]={0} > } [ClaimCounter] )",
               ]}
-              suppressZero={true}
-              title="Total Claims Cost by Claims Type (Drill Down)"
+              label="Claims Settled (YTD)"
+              size="small"
             />
-            <Bar
+            <KPI
               cols={[
-                { qField: "[Vehicle Type]", qLabel: "Vehicle Type" },
-                // { qField: "[Claim Type]", qLabel: "Claim Type" },
-                {
-                  qField: "=Sum({[State 1]}[Total Claim Cost])",
-                  qLabel: "Total Claim Costs",
-                },
+                "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1}, [Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])/1000000",
               ]}
-              suppressZero={true}
-              showLegend={false}
-              suppressScroll={true}
-              title={"Total claim costs..."}
-              // subTitle={
-              //   "Choose the selector on the left to see the costs for different dimensions"
-              // }
+              // cols={[
+              //   {
+              //     qField:
+              //       "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1}, [Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])/1000000",
+              //     qLabel: "Sales $",
+              //     qNumFormat: {
+              //       qType: "R",
+              //       qnDec: 14,
+              //       qUseThou: 1,
+              //       //  "qFmt": "##############",
+              //       qFmt: "#,##0.00%",
+              //       qDec: ".",
+              //       qThou: ",",
+              //     },
+              //   },
+              // ]}
+              label="Claim Payments (YTD) {display as £}"
+              size="small"
             />
-            <Pie
+            <KPI
               cols={[
-                { qField: "[Claim Type]", qLabel: "Claim Type" },
-                {
-                  qField: "=Sum({[State 1]}[Total Claim Cost])",
-                  qLabel: "Total Claim Costs",
-                },
+                "=Avg( { $< [Claim Notification Date.autoCalendar.InYTD]={1} ,[Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])",
               ]}
-              suppressZero={true}
+              label="Ave Claim Costs (YTD) {display as £}"
+              size="small"
             />
-          </Grid>
-        </Box>
-        {sidebar()}
-        <Box
-          gridArea="footer"
-          border="top"
-          align="center"
-          justifyContent="center"
-          direction="row"
-          size="small"
-        >
-          made with ❤️ by motor
-        </Box>
-      </Juno>
+          </Box>
+          <Bar
+            cols={[
+              // { qField: "Year", qLabel: "Year" },
+              {
+                qField: "[Claim Notification Date.autoCalendar.Year]",
+                qLabel: "Claim Year",
+              },
+              {
+                qField: "[Claim Type]",
+                qLabel: "Claim Type",
+              },
+              {
+                qField:
+                  "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1} > } [ClaimCounter] )",
+                qLabel: "Claims Opened (All Yrs YTD)",
+              },
+            ]}
+            stacked={true}
+            suppressZero={true}
+            // showLegend={false}
+            textOnAxis="xAxis"
+          />
+          <Column
+            // notes :
+            // can we use master item Claim Type Drill-down by Claim Occurrence Year // qLibraryId
+            // can we use function in dimension - Year([Claim Occurrence Date])
+            cols={[
+              {
+                // qField: "=Year([Claim Occurrence Date])",
+                qField: "[Claim Occurrence Date]",
+                qLabel: "Claim Type Drill-down by Claim Occurrence Year",
+              },
+              {
+                qField: "=Sum([Total Claim Cost])",
+                qLabel: "Total Claim Cost",
+              },
+            ]}
+            suppressZero={true}
+            title="Total Claims Cost by Claims Type (Drill Down)"
+          />
+          <Bar
+            cols={[
+              { qField: "[Vehicle Type]", qLabel: "Vehicle Type" },
+              // { qField: "[Claim Type]", qLabel: "Claim Type" },
+              {
+                qField: "=Sum({[State 1]}[Total Claim Cost])",
+                qLabel: "Total Claim Costs",
+              },
+            ]}
+            suppressZero={true}
+            showLegend={false}
+            suppressScroll={true}
+            title={"Total claim costs..."}
+            // subTitle={
+            //   "Choose the selector on the left to see the costs for different dimensions"
+            // }
+          />
+          <Pie
+            cols={[
+              { qField: "[Claim Type]", qLabel: "Claim Type" },
+              {
+                qField: "=Sum({[State 1]}[Total Claim Cost])",
+                qLabel: "Total Claim Costs",
+              },
+            ]}
+            suppressZero={true}
+          />
+        </Grid>
+      </Box>
+      {sidebar()}
+      <Box
+        gridArea="footer"
+        border="top"
+        align="center"
+        justifyContent="center"
+        direction="row"
+        size="small"
+      >
+        made with ❤️ by motor
+      </Box>
     </Grid>
   );
 }
