@@ -166,6 +166,22 @@ function App() {
                 cols={[
                   "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1}, [Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])/1000000",
                 ]}
+                // cols={[
+                //   {
+                //     qField:
+                //       "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1}, [Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])/1000000",
+                //     qLabel: "Sales $",
+                //     qNumFormat: {
+                //       qType: "R",
+                //       qnDec: 14,
+                //       qUseThou: 1,
+                //       //  "qFmt": "##############",
+                //       qFmt: "#,##0.00%",
+                //       qDec: ".",
+                //       qThou: ",",
+                //     },
+                //   },
+                // ]}
                 label="Claim Payments (YTD) {display as £}"
                 size="small"
               />
