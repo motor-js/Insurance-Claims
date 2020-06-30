@@ -115,13 +115,23 @@ function App() {
           size="large"
         >
           <Grid
-            cols={["auto"]}
+            rows={["50%", "50%"]}
+            // columns={["auto", "auto"]}
+            cols={["50%", "50%"]}
             // cols={["50%", "50%"]}
-            areas={[
-              ["topleft", "topright"],
-              ["bottomleft", "bottomright"],
-            ]}
+            // areas={[
+            //   ["topleft", "topright"],
+            //   ["bottomleft", "bottomright"],
+            // ]}
           >
+            {/* <Box
+            gridArea="topleft"
+            // border="bottom"
+            // direction="row"
+            // align="center"
+            // padding="20px"
+            // size="large"
+          > */}
             <Bar
               cols={[
                 // { qField: "Year", qLabel: "Year" },
@@ -133,28 +143,15 @@ function App() {
               ]}
               suppressZero={true}
             />
-            <Bar
-              cols={[
-                { qField: "Year", qLabel: "Year" },
-                // { qField: "[OICA region]", qLabel: "OICA region" },
-                {
-                  qField: "=Sum([Car sales])",
-                  qLabel: "Car sales",
-                },
-              ]}
-              suppressZero={true}
-            />{" "}
-            <Bar
-              cols={[
-                // { qField: "Year", qLabel: "Year" },
-                { qField: "[OICA region]", qLabel: "OICA region" },
-                {
-                  qField: "=Sum([Car sales])*if(Year=2011,1,1)",
-                  qLabel: "Car sales",
-                },
-              ]}
-              suppressZero={true}
-            />
+            {/* </Box> */}
+            {/* <Box
+            gridArea="topright"
+            // border="bottom"
+            // direction="row"
+            // align="center"
+            // padding="20px"
+            // size="large"
+          > */}
             <Bar
               cols={[
                 { qField: "Year", qLabel: "Year" },
@@ -166,6 +163,7 @@ function App() {
               ]}
               suppressZero={true}
             />
+            {/* </Box> */}
           </Grid>
         </Box>
         {sidebar()}
