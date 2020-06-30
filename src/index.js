@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { Juno } from 'juno-ui/dist'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import {
+  Motor, // google,
+  // powerbi,
+} from "juno-ui/dist";
+import { config } from "./config.js";
 
 ReactDOM.render(
   <React.StrictMode>
-      <Juno >
-        <App />
-      </Juno>
+    {/* <Motor config={config} theme={powerbi}> */}
+    <Motor config={config}>
+      <App />
+    </Motor>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
