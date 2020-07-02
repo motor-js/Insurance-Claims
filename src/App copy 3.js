@@ -11,8 +11,6 @@ import {
   Column,
   Bar,
   Pie,
-  Filter,
-  CurrentSelections,
 } from "juno-ui/dist";
 import { Menu } from "@styled-icons/feather";
 
@@ -69,27 +67,7 @@ function App() {
         </Sidebar>
       );
     } else {
-      return (
-        <Box
-          gridArea="sidebar"
-          backgroundColor="brand"
-          direction="column"
-          align="center"
-          padding="10px"
-        >
-          <div style={{ color: "white" }}>Filters</div>
-          <Filter label="Claim Status" dimension={["Claim Status"]} />
-          {/* <Filter
-            label="Claim Occurence Year"
-            dimension={["Claim Occurence Date.autocalendar.Year"]}
-          /> */}
-          <Filter label="Claim Type" dimension={["Claim Type"]} />
-          <Filter label="Claim Sub-Type" dimension={["Claim Sub-Type"]} />
-          <Filter label="Broker" dimension={["BrokerName"]} />
-          <CurrentSelections />
-          {/* <Button /> */}
-        </Box>
-      );
+      return <Box gridArea="sidebar" backgroundColor="brand"></Box>;
     }
   };
 
@@ -248,7 +226,7 @@ function App() {
                 suppressZero={true}
                 showLegend={false}
                 suppressScroll={true}
-                title={"Total claim cost"}
+                title={"Total claim costs..."}
                 // subTitle={
                 //   "Choose the selector on the left to see the costs for different dimensions"
                 // }
@@ -261,7 +239,6 @@ function App() {
               }}
             >
               <Pie
-                height="315px"
                 cols={[
                   { qField: "[Claim Type]", qLabel: "Claim Type" },
                   {

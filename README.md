@@ -1,4 +1,5 @@
-# motor-starter
-Starter Qlik Mashup dashboard for the motor library
+# Insurance-Claim-2020 Sample Dashboard
+
+Sample web application using the Motor library
 
 to run: npm run start
