@@ -42,12 +42,3 @@
     transform: rotate(360deg);
   }
 }
-
-.chartParent {
-  display: "flex";
-  flex-flow: "row wrap";
-}
-.chartItem {
-  margin: "0 5px";
-  flex-basis: calc(50% - 10px);
-}

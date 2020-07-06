@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@styled-icons/feather": "^10.0.0",
+    "@styled-icons/ionicons-solid": "^10.6.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "juno-ui": "^0.4.6-alpha.1",
+    "motor-ui": "^0.3.0-alpha.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
