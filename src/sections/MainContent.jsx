@@ -32,6 +32,7 @@ const MainContent = () => {
           height="120px"
           {...boxProps}
           border={{ color: "brand" }}
+          borderRadius="8px"
         >
           <KPI
             margin="10px"
@@ -42,11 +43,16 @@ const MainContent = () => {
             size="small"
             border={false}
             backgroundColor="white"
-            border={false}
+            // border={false}
           />
         </Box>
-        <Box flex={true} height="120px" {...boxProps}>
-          {" "}
+        <Box
+          flex={true}
+          height="120px"
+          {...boxProps}
+          border={{ color: "brand" }}
+          borderRadius="8px"
+        >
           <KPI
             margin="10px"
             cols={[
@@ -57,7 +63,13 @@ const MainContent = () => {
             border={false}
           />
         </Box>
-        <Box flex={true} height="120px" {...boxProps}>
+        <Box
+          flex={true}
+          height="120px"
+          {...boxProps}
+          border={{ color: "brand" }}
+          borderRadius="8px"
+        >
           <KPI
             margin="10px"
             cols={[
@@ -81,7 +93,13 @@ const MainContent = () => {
             border={false}
           />
         </Box>
-        <Box flex={true} height="120px" {...boxProps}>
+        <Box
+          flex={true}
+          height="120px"
+          {...boxProps}
+          border={{ color: "brand" }}
+          borderRadius="8px"
+        >
           <KPI
             margin="10px"
             cols={[
@@ -152,7 +170,6 @@ const MainContent = () => {
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps}>
-          {" "}
           <Bar
             height="315px"
             cols={[

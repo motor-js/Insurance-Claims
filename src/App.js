@@ -57,7 +57,17 @@ function App() {
         <MainContent />
       </Box>
       {/** FOOTER */}
-      <FooterContent>made with ❤️ by motor</FooterContent>
+      <FooterContent>
+        made with
+        <span
+          role="img"
+          aria-label="heart_emoji"
+          style={{ padding: "0px 5px" }}
+        >
+          ❤️
+        </span>
+        by motor
+      </FooterContent>
     </Grid>
   );
 }
