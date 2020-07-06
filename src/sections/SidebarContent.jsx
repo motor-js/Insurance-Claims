@@ -5,7 +5,7 @@ import { Filter as styledFilter } from "@styled-icons/ionicons-solid";
 
 const FilterIcon = styled(styledFilter)`
   color: black;
-  padding: 0px 30px 0px 5px;
+  padding: 0px 10px 0px 5px;
 `;
 
 const SidebarContent = (props) => {
@@ -24,15 +24,28 @@ const SidebarContent = (props) => {
       border={{ color: "brand" }}
       style={{ zIndex: "999" }}
     >
-      <Box direction="column">
-        <span>
+      <Box direction="column" overflow="visible">
+        <Box
+          gridArea="header"
+          // backgroundColor="brand"
+          // border="bottom"
+          border={{ side: "bottom", color: "brand" }}
+          padding="0px 0px 10px 0px"
+          direction="row"
+          align="center"
+          // padding="12px"
+          size="large"
+          overflow="hidden"
+        >
           <FilterIcon onClick={toggle} size={25} />
           Filters
-        </span>
-        <Filter label="Claim Status" dimension={["Claim Status"]} />
-        <Filter label="Claim Type" dimension={["Claim Type"]} />
-        <Filter label="Claim Sub-Type" dimension={["Claim Sub-Type"]} />
-        <Filter label="Broker" dimension={["BrokerName"]} />
+        </Box>
+        <Box direction="column" padding="0px 0px 0px 30px" overflow="visible">
+          <Filter label="Claim Status" dimension={["Claim Status"]} />
+          <Filter label="Claim Type" dimension={["Claim Type"]} />
+          <Filter label="Claim Sub-Type" dimension={["Claim Sub-Type"]} />
+          <Filter label="Broker" dimension={["BrokerName"]} />
+        </Box>
       </Box>
     </Sidebar>
   );
