@@ -28,7 +28,7 @@ function App() {
       <HeaderContent>
         <FilterIcon onClick={toggle} size={25} />
         <span style={{ color: "white", fontWeight: "bold" }}>
-          Motor Starter Dashboard
+          Insurance Claims Dashboard
           <span role="img" aria-label="peace_emoji">
             ✌️
           </span>
@@ -58,15 +58,17 @@ function App() {
       </Box>
       {/** FOOTER */}
       <FooterContent>
-        made with
-        <span
-          role="img"
-          aria-label="heart_emoji"
-          style={{ padding: "0px 5px" }}
-        >
-          ❤️
+        <span style={{ color: "white" }}>
+          made with
+          <span
+            role="img"
+            aria-label="heart_emoji"
+            style={{ padding: "0px 5px" }}
+          >
+            ❤️
+          </span>
+          by motor
         </span>
-        by motor
       </FooterContent>
     </Grid>
   );

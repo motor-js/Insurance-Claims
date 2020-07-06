@@ -6,6 +6,7 @@ const FooterContent = (props) => {
     <Box
       gridArea="footer"
       border={{ side: "top", color: "brand" }}
+      backgroundColor="brand"
       align="center"
       justifyContent="center"
       direction="row"
