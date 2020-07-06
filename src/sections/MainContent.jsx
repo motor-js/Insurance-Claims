@@ -128,7 +128,7 @@ const MainContent = () => {
             border={false}
           />
         </Box>
-        <Box width={dynamicWidth} {...boxProps}>
+        <Box width={dynamicWidth} {...boxProps} overflow="visible">
           <Column
             height="315px"
             cols={[
@@ -146,7 +146,7 @@ const MainContent = () => {
             border={false}
           />
         </Box>
-        <Box width={dynamicWidth} {...boxProps}>
+        <Box width={dynamicWidth} {...boxProps} overflow="visible">
           <Bar
             height="315px"
             cols={[
@@ -167,7 +167,7 @@ const MainContent = () => {
             border={false}
           />
         </Box>
-        <Box width={dynamicWidth} {...boxProps}>
+        <Box width={dynamicWidth} {...boxProps} overflow="visible">
           <Pie
             height="315px"
             cols={[
