@@ -42,6 +42,8 @@ function App() {
         isOpen={isOpen}
         backgroundColor="altGray1"
         justifyContent="top"
+        border={{ color: "brand" }}
+        style={{ zIndex: "999" }}
       >
         <Filter
           onClick={toggle}
