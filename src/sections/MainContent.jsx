@@ -126,7 +126,7 @@ const MainContent = () => {
         </Box>
       </Box>
 
-      <Box width="100%" flex="grow" wrapProp={true}>
+      <Box width="100%" flex="grow" wrapProp={true} overflow="visible">
         <Box width={dynamicWidth} {...boxProps}>
           <Bar
             height="315px"
@@ -190,7 +190,6 @@ const MainContent = () => {
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps}>
-          {" "}
           <Pie
             height="315px"
             cols={[
