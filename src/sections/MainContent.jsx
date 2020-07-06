@@ -17,8 +17,9 @@ const MainContent = () => {
 
   const boxProps = {
     backgroundColor: "white",
-    border: "dashed",
+    border: { color: "brand" },
     margin: "5px",
+    borderRadius: "8px",
   };
 
   const dynamicWidth = "calc(50% - 10px)";
@@ -27,13 +28,7 @@ const MainContent = () => {
     <Box padding="10px" width="100%" overflow="scroll" direction="column">
       <CurrentSelections minHeight="60px" width="100%" />
       <Box width="100%" direction={flexDirection}>
-        <Box
-          flex={true}
-          height="120px"
-          {...boxProps}
-          border={{ color: "brand" }}
-          borderRadius="8px"
-        >
+        <Box flex={true} height="120px" {...boxProps}>
           <KPI
             margin="10px"
             cols={[
@@ -46,13 +41,7 @@ const MainContent = () => {
             // border={false}
           />
         </Box>
-        <Box
-          flex={true}
-          height="120px"
-          {...boxProps}
-          border={{ color: "brand" }}
-          borderRadius="8px"
-        >
+        <Box flex={true} height="120px" {...boxProps}>
           <KPI
             margin="10px"
             cols={[
@@ -63,13 +52,7 @@ const MainContent = () => {
             border={false}
           />
         </Box>
-        <Box
-          flex={true}
-          height="120px"
-          {...boxProps}
-          border={{ color: "brand" }}
-          borderRadius="8px"
-        >
+        <Box flex={true} height="120px" {...boxProps}>
           <KPI
             margin="10px"
             cols={[
@@ -93,13 +76,7 @@ const MainContent = () => {
             border={false}
           />
         </Box>
-        <Box
-          flex={true}
-          height="120px"
-          {...boxProps}
-          border={{ color: "brand" }}
-          borderRadius="8px"
-        >
+        <Box flex={true} height="120px" {...boxProps}>
           <KPI
             margin="10px"
             cols={[
@@ -127,7 +104,7 @@ const MainContent = () => {
       </Box>
 
       <Box width="100%" flex="grow" wrapProp={true} overflow="visible">
-        <Box width={dynamicWidth} {...boxProps}>
+        <Box width={dynamicWidth} {...boxProps} overflow="visible">
           <Bar
             height="315px"
             cols={[
@@ -147,9 +124,8 @@ const MainContent = () => {
             ]}
             stacked={true}
             suppressZero={true}
-            // showLegend={false}
-            // suppressScroll={true}
             textOnAxis="xAxis"
+            border={false}
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps}>
@@ -167,6 +143,7 @@ const MainContent = () => {
             ]}
             suppressZero={true}
             title="Total Claims Cost by Claims Type (Drill Down)"
+            border={false}
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps}>
@@ -187,6 +164,7 @@ const MainContent = () => {
             // subTitle={
             //   "Choose the selector on the left to see the costs for different dimensions"
             // }
+            border={false}
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps}>
@@ -200,6 +178,7 @@ const MainContent = () => {
               },
             ]}
             suppressZero={true}
+            border={false}
           />
         </Box>
       </Box>

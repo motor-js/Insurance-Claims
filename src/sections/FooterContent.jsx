@@ -6,7 +6,7 @@ const FooterContent = (props) => {
     // <Box>Hello Sidebar  <span role='img' aria-label='wave_emoji'>👋</span></Box>
     <Box
       gridArea="footer"
-      border="top"
+      border={{ side: "top", color: "brand" }}
       align="center"
       justifyContent="center"
       direction="row"

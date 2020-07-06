@@ -8,6 +8,8 @@ import { config } from "./config.js";
 import { Motor } from "motor-ui";
 import theme from "./theme";
 
+// theme.global.border = "none";
+
 ReactDOM.render(
   <React.StrictMode>
     <Motor config={config} theme={theme}>
