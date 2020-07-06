@@ -3,7 +3,6 @@ import { Box } from "motor-ui";
 
 const FooterContent = (props) => {
   return (
-    // <Box>Hello Sidebar  <span role='img' aria-label='wave_emoji'>👋</span></Box>
     <Box
       gridArea="footer"
       border={{ side: "top", color: "brand" }}
