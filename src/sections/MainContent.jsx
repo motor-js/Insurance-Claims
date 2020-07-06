@@ -133,16 +133,26 @@ const MainContent = () => {
             height="315px"
             cols={[
               {
-                qField: "[Claim Occurrence Date]",
-                qLabel: "Claim Type Drill-down by Claim Occurrence Year",
+                // qField: "[Claim Occurrence Date]",
+                // qLabel: "Claim Type Drill-down by Claim Occurrence Year",
+                qField: "[Claim Notification Date.autoCalendar.Year]",
+                qLabel: "Claim Year",
               },
               {
                 qField: "=Sum([Total Claim Cost])",
                 qLabel: "Total Claim Cost",
+                qNumFormat: {
+                  qType: "M",
+                  qnDec: 0,
+                  qUseThou: 1,
+                  qFmt: "£#,##0",
+                  qDec: ".",
+                  qThou: ",",
+                },
               },
             ]}
             suppressZero={true}
-            title="Total Claims Cost by Claims Type (Drill Down)"
+            title="Total Claims Cost"
             border={false}
           />
         </Box>
@@ -155,6 +165,14 @@ const MainContent = () => {
               {
                 qField: "=Sum({[State 1]}[Total Claim Cost])",
                 qLabel: "Total Claim Costs",
+                qNumFormat: {
+                  qType: "M",
+                  qnDec: 0,
+                  qUseThou: 1,
+                  qFmt: "£#,##0",
+                  qDec: ".",
+                  qThou: ",",
+                },
               },
             ]}
             suppressZero={true}
