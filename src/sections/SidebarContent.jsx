@@ -4,7 +4,7 @@ import { Box, Filter } from "motor-ui";
 const SidebarContent = () => {
   return (
     <Box direction="column">
-      Hello Sidebar{" "}
+      Hello Sidebar
       <span role="img" aria-label="wave_emoji">
         👋
       </span>
