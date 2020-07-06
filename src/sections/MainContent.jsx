@@ -126,6 +126,7 @@ const MainContent = () => {
             suppressZero={true}
             textOnAxis="xAxis"
             border={false}
+            chartColor="red"
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
@@ -154,6 +155,8 @@ const MainContent = () => {
             suppressZero={true}
             title="Total Claims Cost"
             border={false}
+            chartColor="red"
+            showLegend={false}
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
@@ -183,6 +186,7 @@ const MainContent = () => {
             //   "Choose the selector on the left to see the costs for different dimensions"
             // }
             border={false}
+            chartColor="red"
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
@@ -197,6 +201,8 @@ const MainContent = () => {
             ]}
             suppressZero={true}
             border={false}
+            showLegend={false}
+            chartColor="red"
           />
         </Box>
       </Box>
