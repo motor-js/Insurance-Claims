@@ -5,10 +5,10 @@ import MainContent from "./sections/MainContent.jsx";
 import SidebarContent from "./sections/SidebarContent.jsx";
 import HeaderContent from "./sections/HeaderContent.jsx";
 import FooterContent from "./sections/FooterContent.jsx";
-import { Grid, Box, Sidebar, useSidebar } from "motor-ui";
-import { Filter } from "@styled-icons/ionicons-solid";
+import { Grid, Box, useSidebar } from "motor-ui";
+import { Filter as styledFilter } from "@styled-icons/ionicons-solid";
 
-const FilterIcon = styled(Filter)`
+const FilterIcon = styled(styledFilter)`
   color: white;
   padding: 0px 30px 0px 5px;
 `;
@@ -35,23 +35,7 @@ function App() {
         </span>
       </HeaderContent>
       {/** SIDEBAR */}
-      <Sidebar
-        width="30%"
-        collapsable
-        padding="15px 20px"
-        isOpen={isOpen}
-        backgroundColor="altGray1"
-        justifyContent="top"
-        border={{ color: "brand" }}
-        style={{ zIndex: "999" }}
-      >
-        <Filter
-          onClick={toggle}
-          size={25}
-          style={{ color: "black", padding: "0px 30px 0px 5px" }}
-        />
-        <SidebarContent />
-      </Sidebar>
+      <SidebarContent onClick={toggle} isOpen={isOpen} />
       {/** MAIN */}
       <Box gridArea="main">
         <MainContent />

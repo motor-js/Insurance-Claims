@@ -1,19 +1,40 @@
 import React from "react";
-import { Box, Filter } from "motor-ui";
+import { Box, Filter, Sidebar } from "motor-ui";
+import styled from "styled-components";
+import { Filter as styledFilter } from "@styled-icons/ionicons-solid";
 
-const SidebarContent = () => {
+const FilterIcon = styled(styledFilter)`
+  color: black;
+  padding: 0px 30px 0px 5px;
+`;
+
+const SidebarContent = (props) => {
+  const toggle = () => {
+    props.onClick();
+  };
   return (
-    <Box direction="column">
-      Hello Sidebar
-      <span role="img" aria-label="wave_emoji">
-        👋
-      </span>
-      <div style={{ color: "black" }}>Filters</div>
-      <Filter label="Claim Status" dimension={["Claim Status"]} />
-      <Filter label="Claim Type" dimension={["Claim Type"]} />
-      <Filter label="Claim Sub-Type" dimension={["Claim Sub-Type"]} />
-      <Filter label="Broker" dimension={["BrokerName"]} />
-    </Box>
+    <Sidebar
+      width="30%"
+      collapsable
+      direction="column"
+      padding="15px 12px"
+      isOpen={props.isOpen}
+      backgroundColor="altGray1"
+      justifyContent="top"
+      border={{ color: "brand" }}
+      style={{ zIndex: "999" }}
+    >
+      <Box direction="column">
+        <span>
+          <FilterIcon onClick={toggle} size={25} />
+          Filters
+        </span>
+        <Filter label="Claim Status" dimension={["Claim Status"]} />
+        <Filter label="Claim Type" dimension={["Claim Type"]} />
+        <Filter label="Claim Sub-Type" dimension={["Claim Sub-Type"]} />
+        <Filter label="Broker" dimension={["BrokerName"]} />
+      </Box>
+    </Sidebar>
   );
 };
 
