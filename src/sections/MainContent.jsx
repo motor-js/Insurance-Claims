@@ -13,6 +13,7 @@ const MainContent = () => {
   const { screen } = useScreenSize();
 
   const chartColor = "red";
+  const height = "315px";
 
   let flexDirection = "column";
   if (screen === "desktop" || screen === "largeDesktop") flexDirection = "row";
@@ -108,7 +109,7 @@ const MainContent = () => {
       <Box width="100%" flex="grow" wrapProp={true} overflow="visible">
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
           <Bar
-            height="315px"
+            height={height}
             cols={[
               {
                 qField: "[Claim Notification Date.autoCalendar.Year]",
@@ -133,7 +134,7 @@ const MainContent = () => {
         </Box>
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
           <Column
-            height="315px"
+            height={height}
             cols={[
               {
                 // qField: "[Claim Occurrence Date]",
@@ -163,7 +164,7 @@ const MainContent = () => {
         </Box>
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
           <Bar
-            height="315px"
+            height={height}
             cols={[
               { qField: "[Vehicle Type]", qLabel: "Vehicle Type" },
               // { qField: "[Claim Type]", qLabel: "Claim Type" },
@@ -193,7 +194,7 @@ const MainContent = () => {
         </Box>
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
           <Pie
-            height="315px"
+            height={height}
             cols={[
               { qField: "[Claim Type]", qLabel: "Claim Type" },
               {
