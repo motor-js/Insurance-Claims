@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import "./App.css";
-import MainContent from "./sections/MainContent.jsx";
-import SidebarContent from "./sections/SidebarContent.jsx";
-import HeaderContent from "./sections/HeaderContent.jsx";
-import FooterContent from "./sections/FooterContent.jsx";
+import {
+  FooterContent,
+  HeaderContent,
+  SidebarContent,
+  MainContent,
+} from "./sections";
 import { Grid, Box, useSidebar } from "motor-ui";
 import { Filter as styledFilter } from "@styled-icons/ionicons-solid";
 
