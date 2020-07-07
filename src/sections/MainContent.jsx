@@ -12,6 +12,8 @@ import {
 const MainContent = () => {
   const { screen } = useScreenSize();
 
+  const chartColor = "red";
+
   let flexDirection = "column";
   if (screen === "desktop" || screen === "largeDesktop") flexDirection = "row";
 
@@ -126,7 +128,7 @@ const MainContent = () => {
             suppressZero={true}
             textOnAxis="xAxis"
             border={false}
-            chartColor="red"
+            chartColor={chartColor}
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
@@ -155,7 +157,7 @@ const MainContent = () => {
             suppressZero={true}
             title="Total Claims Cost"
             border={false}
-            chartColor="red"
+            chartColor={chartColor}
             showLegend={false}
           />
         </Box>
@@ -186,7 +188,7 @@ const MainContent = () => {
             //   "Choose the selector on the left to see the costs for different dimensions"
             // }
             border={false}
-            chartColor="red"
+            chartColor={chartColor}
           />
         </Box>
         <Box width={dynamicWidth} {...boxProps} overflow="visible">
@@ -202,7 +204,7 @@ const MainContent = () => {
             suppressZero={true}
             border={false}
             showLegend={false}
-            chartColor="red"
+            chartColor={chartColor}
           />
         </Box>
       </Box>
