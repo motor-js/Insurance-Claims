@@ -5,7 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { config } from "./config.js";
 
-import { Motor } from "motor-ui";
+import { Motor } from "@motor-js/core";
 import theme from "./theme";
 
 // theme.global.border = "none";

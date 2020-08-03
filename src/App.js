@@ -7,7 +7,7 @@ import {
   SidebarContent,
   MainContent,
 } from "./sections";
-import { Grid, Box, useSidebar } from "motor-ui";
+import { Grid, Box, useSidebar } from "@motor-js/core";
 import { Filter as styledFilter } from "@styled-icons/ionicons-solid";
 
 const FilterIcon = styled(styledFilter)`

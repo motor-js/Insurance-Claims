@@ -7,7 +7,7 @@ import {
   Bar,
   Column,
   Pie,
-} from "motor-ui";
+} from "@motor-js/core";
 
 const MainContent = () => {
   const { screen } = useScreenSize();
@@ -204,7 +204,7 @@ const MainContent = () => {
             ]}
             suppressZero={true}
             border={false}
-            showLegend={false}
+            showLegend={true}
             chartColor={chartColor}
           />
         </Box>

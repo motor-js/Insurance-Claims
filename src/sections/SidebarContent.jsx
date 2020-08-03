@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Filter, Sidebar } from "motor-ui";
+import { Box, Filter, Sidebar } from "@motor-js/core";
 import styled from "styled-components";
 import { Filter as styledFilter } from "@styled-icons/ionicons-solid";
 
