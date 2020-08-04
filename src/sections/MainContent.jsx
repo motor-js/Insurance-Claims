@@ -63,14 +63,8 @@ const MainContent = () => {
                 qField:
                   "=Sum( { $< [Claim Notification Date.autoCalendar.InYTD]={1}, [Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])/1000000",
                 qLabel: "Margin Amount",
-                qNumFormat: {
-                  qType: "M",
-                  qnDec: 0,
-                  qUseThou: 1,
-                  qFmt: "£#,##0",
-                  qDec: ".",
-                  qThou: ",",
-                },
+                qNumType: "M",
+                qNumFmt: "£#,##0",
               },
             ]}
             roundNum={false}
@@ -86,14 +80,8 @@ const MainContent = () => {
               {
                 qField:
                   "=Avg( { $< [Claim Notification Date.autoCalendar.InYTD]={1} ,[Claim Notification Date.autoCalendar.YearsAgo]={0} > } [Total Claim Cost])",
-                qNumFormat: {
-                  qType: "M",
-                  qnDec: 0,
-                  qUseThou: 1,
-                  qFmt: "£#,##0",
-                  qDec: ".",
-                  qThou: ",",
-                },
+                qNumType: "M",
+                qNumFmt: "£#,##0",
               },
             ]}
             roundNum={false}
